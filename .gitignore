@@ -1,3 +1,10 @@
+# Env
+.env
+
+# Ide
+.idea
+/.idea
+
 # Logs
 logs
 *.log
