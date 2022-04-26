@@ -1,4 +1,4 @@
-const run = require('./Config/kernel')
+const run = require('./http/kernel')
 const express = require('express');
 const app = express();
 class Api {
