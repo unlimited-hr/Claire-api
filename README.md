@@ -65,14 +65,18 @@ To learn more about using express.Router
 
 Reference: https://expressjs.com/en/guide/routing.html
 
-### MySql
+### Installing MySql
+
+On Ubuntu:
 ```sh
-# on Ubuntu
 sudo apt install mysql-server
 sudo systemctl start mysql.service
 sudo mysql_secure_installation
 sudo mysql
 ```
+
+### Creating MySQL Database
+
 Make sure to note the port, database, username and password in the .env file!
 ```sql
 SHOW GLOBAL VARIABLES LIKE 'PORT';
@@ -87,25 +91,19 @@ This project uses sequelize ORM to make use of the model creation and migrations
 To create a new model with an associated database migration.
 
 ```shell
-
 npx sequelize-cli model:generate --name User --attributes firstName:string,lastName:string,email:string
-
 ```
 
 ### Running migrations
 
 ```shell
-
 npx sequelize-cli db:migrate
-
 ```
 
 Undo migration
 
 ```shell
-
 npx sequelize-cli db:migrate:undo
-
 ```
 =======
 Reference: https://expressjs.com/en/guide/routing.html
