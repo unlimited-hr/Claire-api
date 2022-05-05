@@ -14,6 +14,7 @@ const sequelize = new Sequelize(process.env.DATABASE, process.env.DATABASE_USER,
 try {
     sequelize.authenticate();
     console.log('Connection has been established successfully.');
+    module.exports = sequelize
     return sequelize
 } catch (error) {
     console.error('Unable to connect to the database:', error);
@@ -21,6 +22,6 @@ try {
 
 
 
-module.exports = connection
+module.exports = sequelize
 // todo: Create database configuration
 
