@@ -1,4 +1,4 @@
-const {getRequestIpAddress} = require('../../Helpers/request-ip-addres');
+const {getRequestIpAddress} = require('../../helpers/request-ip-addres');
 
 const logger = (req, res, next) => {
     const clientIp = getRequestIpAddress(req)

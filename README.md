@@ -64,3 +64,33 @@ module.exports = router
 To learn more about using express.Router
 
 Reference: https://expressjs.com/en/guide/routing.html
+
+
+### Creating models & migration
+
+This project uses sequelize ORM to make use of the model creation and migrations.
+To create a new model with an associated database migration.
+
+```shell
+
+npx sequelize-cli model:generate --name User --attributes firstName:string,lastName:string,email:string
+
+```
+
+### Running migrations
+
+```shell
+
+npx sequelize-cli db:migrate
+
+```
+
+Undo migration
+
+```shell
+
+npx sequelize-cli db:migrate:undo
+
+```
+=======
+Reference: https://expressjs.com/en/guide/routing.html

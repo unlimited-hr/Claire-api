@@ -1,7 +1,7 @@
 require('dotenv').config()
 const http = require('http');
 const bodyParser = require('body-parser');
-const setRoutes = require('../Routes/index');
+const setRoutes = require('../routes/index');
 // const myPlugin = require('myPlugin')
 
 /**
@@ -11,7 +11,8 @@ const setRoutes = require('../Routes/index');
  */
 
 const setConfig = (app) => {
-    app.use(bodyParser.urlencoded({extended: false}));
+    app.use(bodyParser.urlencoded({extended: true}));
+    app.use(bodyParser.json({ type: 'application/*+json' }))
     // app.use(myPlugin)
 }
 
