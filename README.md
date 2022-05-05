@@ -65,7 +65,7 @@ To learn more about using express.Router
 
 Reference: https://expressjs.com/en/guide/routing.html
 
-### Mysql
+### MySql
 ```sh
 # on Ubuntu
 sudo apt install mysql-server
@@ -73,15 +73,13 @@ sudo systemctl start mysql.service
 sudo mysql_secure_installation
 sudo mysql
 ```
-
+Make sure to note the port, database, username and password in the .env file!
 ```sql
 SHOW GLOBAL VARIABLES LIKE 'PORT';
 CREATE USER 'claire'@'localhost' IDENTIFIED BY 'claire_password';
 CREATE DATABASE api;
 GRANT ALL ON api.* TO 'claire'@'localhost'; -- less broad priveleges?
 ```
-Make sure to note the port, database, username and password in the .env file!
-
 
 ### Creating models & migration
 
