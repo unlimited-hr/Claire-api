@@ -4,7 +4,7 @@ const {Sequelize} = require('sequelize');
 const {host} = require('../helpers/database/database-host');
 
 const sequelize = new Sequelize(process.env.DATABASE, process.env.DATABASE_USER, process.env.DATABASE_PASSWORD, {
-    dialect: 'mariadb',
+    dialect: 'mysql',
     host: `${process.env.DATABASE_HOST}` ,
     port: `${process.env.DATABASE_PORT}`,
     dialectOptions: {
