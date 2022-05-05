@@ -1,3 +1,3 @@
-const API = require("../app/API");
+const API = require("../app/api");
 
 new API()

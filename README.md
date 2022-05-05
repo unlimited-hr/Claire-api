@@ -63,7 +63,7 @@ module.exports = router
 
 To learn more about using express.Router
 
-Refrence: https://expressjs.com/en/guide/routing.html
+Reference: https://expressjs.com/en/guide/routing.html
 
 
 ### Creating models & migration
@@ -92,3 +92,5 @@ Undo migration
 npx sequelize-cli db:migrate:undo
 
 ```
+=======
+Reference: https://expressjs.com/en/guide/routing.html
