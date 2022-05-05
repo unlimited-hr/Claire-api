@@ -6,7 +6,7 @@ const User = UserMaker(db, DataTypes)
 
 const UserController = {
     async getUsers(req, res) {
-        const jane = User.build({ firstName: "Jane", lastName: "Doe" });
+        const jane = User.create({ email: "JaneDoe@example.com", password: "12345abcde" });
         return res.json(JSON.stringify(jane))
     },
     async getUser(req, res, options) {

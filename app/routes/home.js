@@ -10,7 +10,9 @@ router.use(logger)
 // router.use(request)
 // router.use(response)
 // define the home page route
-router.get('/', (req, res) => UserController.getUsers(req, res))
+router.get('/users', (req, res) => {
+    UserController.getUsers(req, res)
+})
 // define the about route
 router.get('/about', (req, res) => {
     res.send('About birds')
