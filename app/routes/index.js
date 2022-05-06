@@ -1,12 +1,13 @@
 // Imported route groups
-const home = require('./home')
-/**
- * In this function the routes will be bound to the global router.
- * You can create a route group with express routers like in example home.js
- * @param app
- */
-const setRoutes = (app) => {
-    app.use('/', home)
+const UserRouter = require('./userRouter')
+const MeasurementRouter = require('./measurementRouter')
+const DeviceRouter = require('./deviceRouter')
+const ConnectionRouter = require('./connectionRouter')
 
+const setRoutes = (app) => {
+    app.use('/users', UserRouter)
+    app.use('/iaq', MeasurementRouter)
+    app.use('/devices', DeviceRouter)
+    app.use('/connections', ConnectionRouter)
 }
 module.exports = setRoutes

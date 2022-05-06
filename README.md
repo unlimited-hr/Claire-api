@@ -5,11 +5,6 @@ The app is made with Model-View-Controller (MVC) design pattern.
 ### Get started
 Make sure to copy the .env.example file and set your desired values.
 
-```dotenv
-PORT=6666
-HOST=localhost
-```
-
 ### Create routes
 In the 'Routes/index.js' file you can declare your app routes.
 

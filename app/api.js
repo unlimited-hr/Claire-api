@@ -1,6 +1,11 @@
 const run = require('./http/kernel')
 const express = require('express');
+const bp = require('body-parser');
 const app = express();
+
+app.use(bp.json())
+app.use(bp.urlencoded({extendedparser: true}));
+
 class Api {
 
     app = app
