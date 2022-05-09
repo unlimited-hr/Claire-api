@@ -1,15 +1,12 @@
 const { Sequelize, DataTypes, Model } = require('sequelize');
 const db = require('../../database/database')
 
-const MeasurementMaker = require('../../models/air_measurement')
-const Measurement = MeasurementMaker(db.sequelize, DataTypes)
-
-const ConnectionMaker = require('../../models/device_connections')
-const Device_Connection = ConnectionMaker(db.sequelize, DataTypes)
+const Measurement = db.Air_Measurement
+const Device_Connection = db.Device_Connection
 
 const MeasurementController = {
     async getIaq(req, res, options) {
-        const measurements = await Measurement.findAll();
+        const measurements = await Measurement.findAll({ include: db.Device });
         console.log(measurements)
         return res.send(JSON.stringify(measurements))
     },

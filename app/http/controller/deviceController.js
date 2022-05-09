@@ -1,14 +1,13 @@
 const { Sequelize, DataTypes, Model } = require('sequelize');
 const db = require('../../database/database')
 
-const DeviceMaker = require('../../models/devices')
-const Device = DeviceMaker(db.sequelize, DataTypes)
+const Device = db.Device
+const User = db.User
 
 
 const DeviceController = {
     async getDevices(req, res, options) {
-        const devices = await Device.findAll();
-        console.log(devices)
+        const devices = await Device.findAll({ include: User });
         return res.send(JSON.stringify(devices))
     },
     async createDevice(req, res, options) {

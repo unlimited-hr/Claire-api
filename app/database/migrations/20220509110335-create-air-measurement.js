@@ -1,18 +1,30 @@
 'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Users', {
+    await queryInterface.createTable('Air_Measurements', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      password: {
+      temperature: {
+        type: Sequelize.INTEGER
+      },
+      humidity: {
+        type: Sequelize.INTEGER
+      },
+      co2: {
+        type: Sequelize.INTEGER
+      },
+      tvoc: {
+        type: Sequelize.INTEGER
+      },
+      device_id: {
         type: Sequelize.STRING
       },
-      email: {
-        type: Sequelize.STRING
+      measured_at: {
+        type: Sequelize.DATE
       },
       createdAt: {
         allowNull: false,
@@ -25,6 +37,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Users');
+    await queryInterface.dropTable('Air_Measurements');
   }
 };
