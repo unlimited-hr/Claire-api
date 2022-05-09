@@ -10,4 +10,8 @@ router.post('/', (req, res) => {
     DeviceController.createDevice(req, res)
 })
 
+router.put('/:device_id', (req, res) => {
+    DeviceController.updateDevice(req, res)
+})
+
 module.exports = router

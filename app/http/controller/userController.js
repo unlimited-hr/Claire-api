@@ -1,24 +1,27 @@
 const { Sequelize, DataTypes, Model } = require('sequelize');
 const db = require('../../database/database')
 
-const UserMaker = require('../../models/user')
-const User = UserMaker(db.sequelize, DataTypes)
+const User = db.User
+const Device_Connections = db.Device_Connections;
 
 const UserController = {
     async getUsers(req, res, options) {
         const users = await User.findAll();
-        console.log(users)
-        return res.send(JSON.stringify(users))
+        return res.json(users)
     },
     async getUser(req, res, options) {
         const user = await User.findByPk(req.params.user_id);
-        console.log(req.params.user_id)
-        return res.send(JSON.stringify(user))
+        return res.json(user)
     },
     async createUser(req, res, options) {
         const user = await User.create({ ...req.body });
-        console.log(user)
-        return res.send(JSON.stringify(user))
+        return res.json(user)
+    },
+    async forgetUser(req, res, options) {
+        await User.destroy({ "where": { "id": req.params.user_id } });
+        await Device_Connections.destroy({ "where": { "iser_id": req.params.user_id } });
+
+        return res.status(204).json("succesfully forgot user.");
     }
 }
 

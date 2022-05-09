@@ -1,34 +1,47 @@
-const { Sequelize, DataTypes, Model } = require('sequelize');
 const db = require('../../database/database')
+const { Op } = require("sequelize");
 
 const Measurement = db.Air_Measurement
-const Device_Connection = db.Device_Connection
+const Device_Connection = db.Device_Connections
 
 const MeasurementController = {
     async getIaq(req, res, options) {
         const measurements = await Measurement.findAll({ include: db.Device });
-        console.log(measurements)
-        return res.send(JSON.stringify(measurements))
+        return res.json(measurements)
     },
     async createMeasurement(req, res, options) {
         let current_time = Date.now()
-        const measurement = await Measurement.create({...req.body, measured_at: current_time})
-        return res.send(JSON.stringify(measurement))
+        const measurement = await Measurement.create({ ...req.body, measured_at: current_time })
+        return res.json(measurement)
     },
-    async getMeasurement(req, res, options) {
+    async getMeasurementsByUser(req, res, time, options) {
         const user_id = req.params.user_id;
-        const connections = await Device_Connection.findAll({where: {"user_id": user_id}})
-        let iaq = []
-
-        for (let c of connections) {
-            console.log(c.device_id)
-            let new_iaq = await Measurement.findAll({where: {"device_id": c.device_id}})
-            iaq.push(...new_iaq)
+        const device_connections = (await Device_Connection.findAll({ where: { "user_id": user_id } })).map(
+            (conn) => conn.dataValues.device_id)
+        let measurements;
+        if (time == "all")
+            measurements = await Measurement.findAll({
+                where: { "device_id": { [Op.or]: device_connections } }
+            });
+        else {
+            const current_time = new Date(Date.now());
+            const start_time = new Date(Date.now() - time)
+            console.log(current_time,start_time)
+            measurements = await Measurement.findAll({
+                where: {
+                    [Op.and]: {
+                        "device_id": {
+                            [Op.or]: device_connections
+                        },
+                        "measured_at": {
+                            [Op.between]: [start_time, current_time]
+                        }
+                    }
+                }
+            });
         }
 
-        // const devices = await Device.findAll();
-        console.log(iaq)
-        return res.send(JSON.stringify(iaq))
+        return res.json(measurements)
     },
 }
 

@@ -17,4 +17,8 @@ router.get('/:user_id', (req, res) => {
     UserController.getUser(req, res)
 })
 
+router.delete('/:user_id', (req, res) => {
+    UserController.forgetUser(req, res)
+})
+
 module.exports = router
