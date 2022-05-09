@@ -1,6 +1,8 @@
 ## API Endpoints
 
+`GET`, `POST`
 GET op: `claireURL/iaq/:user_id` <br>
+
 Geeft gemeten luchtkwaliteit van de apparaten gekoppeld aan een gebruiker terug. <br>
 In de url geef je een gebruiker-id mee. <br><br>
 
