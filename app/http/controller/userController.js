@@ -2,7 +2,7 @@ const { Sequelize, DataTypes, Model } = require('sequelize');
 const db = require('../../database/database')
 
 const UserMaker = require('../../models/user')
-const User = UserMaker(db, DataTypes)
+const User = UserMaker(db.sequelize, DataTypes)
 
 const UserController = {
     async getUsers(req, res, options) {

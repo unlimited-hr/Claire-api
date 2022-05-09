@@ -2,7 +2,7 @@ const { Sequelize, DataTypes, Model } = require('sequelize');
 const db = require('../../database/database')
 
 const ConnectionMaker = require('../../models/device_connections')
-const Connection = ConnectionMaker(db, DataTypes)
+const Connection = ConnectionMaker(db.sequelize, DataTypes)
 
 const ConnectionController = {
     async getConnections(req, res, options) {

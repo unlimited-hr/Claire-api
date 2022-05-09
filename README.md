@@ -87,8 +87,8 @@ This project uses sequelize ORM to make use of the model creation and migrations
 Create models for Claire-API db:
 ```sh
 npx sequelize-cli model:generate --name User --attributes email:string,password:string
-npx sequelize-cli model:generate --name Devices --attributes authentication_token:string
-npx sequelize-cli model:generate --name Air_Measurement --attributes temperature:integer,humidity:integer,co2:integer,tvoc:integer,device_id:string,year_built:integer,stories:integer,cooktop_fuel:string,oven_fuel:string,measured_at:date
+npx sequelize-cli model:generate --name Device --attributes year_built:integer,stories:integer,cooktop_fuel:string,oven_fuel:string,physical_id:integer
+npx sequelize-cli model:generate --name Air_Measurement --attributes temperature:integer,humidity:integer,co2:integer,tvoc:integer,device_id:string,measured_at:date
 npx sequelize-cli model:generate --name Device_Connections --attributes device_id:integer,user_id:integer
 npx sequelize-cli model:generate --name Auth_Tokens --attributes token:string,created_at:date,expired:boolean,permissions:integer
 ```
