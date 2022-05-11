@@ -1,8 +1,11 @@
 const db = require('../../database/database')
 const { Op } = require("sequelize");
+const res = require('express/lib/response');
 
 const Measurement = db.Air_Measurement
 const Device_Connection = db.Device_Connections
+
+// time,room,YearBuilt,N_Stories,Cooktop_Fuel,Oven_Fuel,CO2,FRM,T,RH,activity,certainty,rel_CO2,rel_FRM,rel_T,rel_RH,CO2_score,FRM_score,RH_score,total_score,hour
 
 const MeasurementController = {
     async getIaq(req, res, options) {
@@ -14,20 +17,21 @@ const MeasurementController = {
         const measurement = await Measurement.create({ ...req.body, measured_at: current_time })
         return res.json(measurement)
     },
-    async getMeasurementsByUser(req, res, time, options) {
+    async getMeasurementsByUser(req, res, start_time, period, options) {
         const user_id = req.params.user_id;
         const device_connections = (await Device_Connection.findAll({ where: { "user_id": user_id } })).map(
             (conn) => conn.dataValues.device_id)
         let measurements;
-        if (time == "all")
+        if (period == "all")
             measurements = await Measurement.findAll({
+                include: db.Device,
                 where: { "device_id": { [Op.or]: device_connections } }
             });
         else {
             const current_time = new Date(Date.now());
-            const start_time = new Date(Date.now() - time)
-            console.log(current_time,start_time)
+            const start_time = new Date(Date.now() - period)
             measurements = await Measurement.findAll({
+                include: db.Device,
                 where: {
                     [Op.and]: {
                         "device_id": {
@@ -40,9 +44,8 @@ const MeasurementController = {
                 }
             });
         }
-
-        return res.json(measurements)
-    },
+        return measurements
+    }
 }
 
 module.exports = MeasurementController

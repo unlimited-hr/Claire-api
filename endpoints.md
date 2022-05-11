@@ -10,6 +10,9 @@ Geeft gemeten luchtkwaliteit van een gebruiker binnen een periode terug <br>
 Hour geeft alles van afgelopen uur terug, Day alles van afgelopen dag. Etc.<br>
 Mogelijke waarden: `minute, hour, day, week, month, year`. Je kan ook een getal (in minuten) meegeven. <br><br>
 
+`GET | */iaq/:user_id/predict` <br>
+Geeft als string een tip aan de gebruiker terug. Op dit moment nog statisch. <br><br>
+
 `PUT, POST | */devices` <br>
 Voegt apparaat toe aan de database. <br>
 In de body geef je de omgevingsvariabelen van het apparaat en een apparaat-id (fysieke code) mee. <br>

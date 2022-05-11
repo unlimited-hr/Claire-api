@@ -1,0 +1,283 @@
+{
+	"attribute": "certainty",
+	"predicateName": ">=",
+	"pivot": 0.5416666666666666,
+	"match": {
+		"attribute": "N_Stories",
+		"predicateName": ">=",
+		"pivot": 2,
+		"match": {
+			"attribute": "certainty",
+			"predicateName": ">=",
+			"pivot": 0.7291666666666667,
+			"match": {
+				"attribute": "certainty",
+				"predicateName": ">=",
+				"pivot": 1.5,
+				"match": {
+					"category": "cooktop_stove"
+				},
+				"notMatch": {
+					"category": "nothing"
+				},
+				"matchedCount": 1,
+				"notMatchedCount": 657
+			},
+			"notMatch": {
+				"attribute": "total_score",
+				"predicateName": ">=",
+				"pivot": 0.1695238095238095,
+				"match": {
+					"attribute": "hour",
+					"predicateName": ">=",
+					"pivot": 19,
+					"match": {
+						"attribute": "YearBuilt",
+						"predicateName": ">=",
+						"pivot": 2014,
+						"match": {
+							"category": "space heater"
+						},
+						"notMatch": {
+							"category": "nothing"
+						},
+						"matchedCount": 1,
+						"notMatchedCount": 1
+					},
+					"notMatch": {
+						"category": "cooktop_stove"
+					},
+					"matchedCount": 2,
+					"notMatchedCount": 2
+				},
+				"notMatch": {
+					"attribute": "certainty",
+					"predicateName": ">=",
+					"pivot": 0.7142857142857143,
+					"match": {
+						"category": "space heater"
+					},
+					"notMatch": {
+						"category": "nothing"
+					},
+					"matchedCount": 1,
+					"notMatchedCount": 13
+				},
+				"matchedCount": 4,
+				"notMatchedCount": 14
+			},
+			"matchedCount": 658,
+			"notMatchedCount": 18
+		},
+		"notMatch": {
+			"attribute": "RH_score",
+			"predicateName": ">=",
+			"pivot": 0,
+			"match": {
+				"attribute": "YearBuilt",
+				"predicateName": ">=",
+				"pivot": 2016,
+				"match": {
+					"category": "nothing"
+				},
+				"notMatch": {
+					"attribute": "YearBuilt",
+					"predicateName": ">=",
+					"pivot": 2014,
+					"match": {
+						"attribute": "CO2",
+						"predicateName": ">=",
+						"pivot": 488,
+						"match": {
+							"attribute": "FRM",
+							"predicateName": ">=",
+							"pivot": 13,
+							"match": {
+								"attribute": "T",
+								"predicateName": ">=",
+								"pivot": 22.1,
+								"match": {
+									"attribute": "Oven_Fuel",
+									"predicateName": "==",
+									"pivot": "Gas",
+									"match": {
+										"category": "nothing"
+									},
+									"notMatch": {
+										"attribute": "YearBuilt",
+										"predicateName": ">=",
+										"pivot": 2015,
+										"match": {
+											"category": "air_purifier"
+										},
+										"notMatch": {
+											"attribute": "CO2_score",
+											"predicateName": ">=",
+											"pivot": -0.30514285714285716,
+											"match": {
+												"category": "nothing"
+											},
+											"notMatch": {
+												"attribute": "T",
+												"predicateName": ">=",
+												"pivot": 24.3,
+												"match": {
+													"category": "nothing"
+												},
+												"notMatch": {
+													"category": "air_purifier"
+												},
+												"matchedCount": 2,
+												"notMatchedCount": 5
+											},
+											"matchedCount": 22,
+											"notMatchedCount": 7
+										},
+										"matchedCount": 13,
+										"notMatchedCount": 29
+									},
+									"matchedCount": 10,
+									"notMatchedCount": 42
+								},
+								"notMatch": {
+									"attribute": "YearBuilt",
+									"predicateName": ">=",
+									"pivot": 2015,
+									"match": {
+										"category": "nothing"
+									},
+									"notMatch": {
+										"category": "air_purifier"
+									},
+									"matchedCount": 1,
+									"notMatchedCount": 14
+								},
+								"matchedCount": 52,
+								"notMatchedCount": 15
+							},
+							"notMatch": {
+								"category": "nothing"
+							},
+							"matchedCount": 67,
+							"notMatchedCount": 7
+						},
+						"notMatch": {
+							"category": "nothing"
+						},
+						"matchedCount": 74,
+						"notMatchedCount": 7
+					},
+					"notMatch": {
+						"category": "nothing"
+					},
+					"matchedCount": 81,
+					"notMatchedCount": 34
+				},
+				"matchedCount": 43,
+				"notMatchedCount": 115
+			},
+			"notMatch": {
+				"attribute": "rel_T",
+				"predicateName": ">=",
+				"pivot": 1.1000000000000014,
+				"match": {
+					"attribute": "rel_FRM",
+					"predicateName": ">=",
+					"pivot": 0,
+					"match": {
+						"category": "bbq"
+					},
+					"notMatch": {
+						"category": "nothing"
+					},
+					"matchedCount": 1,
+					"notMatchedCount": 2
+				},
+				"notMatch": {
+					"attribute": "rel_T",
+					"predicateName": ">=",
+					"pivot": -1,
+					"match": {
+						"attribute": "total_score",
+						"predicateName": ">=",
+						"pivot": 0.08730158730158727,
+						"match": {
+							"category": "nothing"
+						},
+						"notMatch": {
+							"attribute": "total_score",
+							"predicateName": ">=",
+							"pivot": 0.08704761904761911,
+							"match": {
+								"category": "air_purifier"
+							},
+							"notMatch": {
+								"category": "nothing"
+							},
+							"matchedCount": 1,
+							"notMatchedCount": 19
+						},
+						"matchedCount": 228,
+						"notMatchedCount": 20
+					},
+					"notMatch": {
+						"attribute": "rel_T",
+						"predicateName": ">=",
+						"pivot": -1.2000000000000028,
+						"match": {
+							"category": "bbq"
+						},
+						"notMatch": {
+							"category": "nothing"
+						},
+						"matchedCount": 1,
+						"notMatchedCount": 6
+					},
+					"matchedCount": 248,
+					"notMatchedCount": 7
+				},
+				"matchedCount": 3,
+				"notMatchedCount": 255
+			},
+			"matchedCount": 158,
+			"notMatchedCount": 258
+		},
+		"matchedCount": 676,
+		"notMatchedCount": 416
+	},
+	"notMatch": {
+		"attribute": "CO2",
+		"predicateName": ">=",
+		"pivot": 801,
+		"match": {
+			"attribute": "N_Stories",
+			"predicateName": ">=",
+			"pivot": 2,
+			"match": {
+				"category": "oven"
+			},
+			"notMatch": {
+				"category": "bbq"
+			},
+			"matchedCount": 1,
+			"notMatchedCount": 1
+		},
+		"notMatch": {
+			"attribute": "RH",
+			"predicateName": ">=",
+			"pivot": 61.1,
+			"match": {
+				"category": "space heater"
+			},
+			"notMatch": {
+				"category": "cooktop_stove"
+			},
+			"matchedCount": 1,
+			"notMatchedCount": 6
+		},
+		"matchedCount": 2,
+		"notMatchedCount": 7
+	},
+	"matchedCount": 1092,
+	"notMatchedCount": 9
+}

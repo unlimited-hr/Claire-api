@@ -86,7 +86,7 @@ This project uses sequelize ORM to make use of the model creation and migrations
 
 Create models for Claire-API db:
 ```sh
-npx sequelize-cli model:generate --name User --attributes email:string,password:string
+npx sequelize-cli model:generate --name User --attributes email:string,password:string,name:string
 
 npx sequelize-cli model:generate --name Device --attributes year_built:integer,stories:integer,cooktop_fuel:string,oven_fuel:string,physical_id:integer
 
@@ -95,6 +95,8 @@ npx sequelize-cli model:generate --name Air_Measurement --attributes temperature
 npx sequelize-cli model:generate --name Device_Connections --attributes device_id:integer,user_id:integer
 
 npx sequelize-cli model:generate --name Auth_Tokens --attributes token:string,created_at:date,expired:boolean,permissions:integer
+
+npx sequelize-cli model:generate --name Physical_IDs --attributes physical_id:string
 ```
 
 ### Running migrations
@@ -110,3 +112,5 @@ npx sequelize-cli db:migrate:undo
 ```
 =======
 Reference: https://expressjs.com/en/guide/routing.html
+
+Bij data gemiddelde nemen van afgelopen uur/dag/week/maand
