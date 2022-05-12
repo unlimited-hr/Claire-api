@@ -1,5 +1,6 @@
 const jose = require("jose");
 const crypto = require('crypto');
+const b64_decode = (data) => Buffer.from(data, 'base64').toString('ascii');
 require('dotenv').config()
 /**
  * Site used to create Json Web Keys(JWK) pairs
@@ -14,7 +15,7 @@ require('dotenv').config()
  */
 const importKey = async (key, alg = 'ES256') => {
     // const ecPublicKey = await jose.importJWK('sd', 'ES256')
-    const JWK = await JSON.parse(atob(key))
+    const JWK = await JSON.parse(b64_decode(key))
     console.log(JWK)
     const privateKey = await jose.importJWK(JWK, alg)
     console.log( privateKey)
@@ -89,7 +90,7 @@ const createJWKS = async () => {
  * @param privateKey
  */
 const createAndSignToken = async (payload, privateKey) => {
-    const decodedKey = JSON.parse(atob(privateKey))
+    const decodedKey = JSON.parse(b64_decode(privateKey))
     const key = await jose.importJWK(decodedKey, 'ES256')
     return await new jose.SignJWT(payload)
         .setProtectedHeader({alg: 'RS256'})
@@ -119,11 +120,10 @@ const encryptMessage = async (message, key) => {
  * @return {Promise<{payload: JWTPayload, protectedHeader: JWTHeaderParameters}>}
  */
 const verifyToken = async (token, publicKey) => {
-    const decodedKey = JSON.parse(atob(publicKey))
+    const decodedKey = JSON.parse(b64_decode(publicKey))
     const key = await jose.importJWK(decodedKey, 'ES256')
-    const {payload, protectedHeader} = await jose.jwtVerify(token, key, {
-        audience: 'api:claire'
-    })
+    console.log(key.type)
+    const {payload, protectedHeader} = await jose.jwtVerify(token, key)
     return {payload, protectedHeader}
 }
 

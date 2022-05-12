@@ -15,7 +15,7 @@ const MeasurementController = {
     async createMeasurement(req, res, options) {
         let current_time = Date.now()
         const measurement = await Measurement.create({ ...req.body, measured_at: current_time })
-        return res.json(measurement)
+        return res.status(201).json(measurement)
     },
     async createIaq(req, res) {
         let current_time = Date.now()

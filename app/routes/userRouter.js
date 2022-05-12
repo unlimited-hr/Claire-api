@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const logger = require('../http/middleware/logger')
 const UserController = require('../http/controller/userController')
+const checkUser = require('../helpers/checkUser.js')
 
 router.use(logger)
 
@@ -17,8 +18,12 @@ router.get('/:user_id', (req, res) => {
     UserController.getUser(req, res)
 })
 
-router.delete('/:user_id', (req, res) => {
-    UserController.forgetUser(req, res)
+router.delete('/:user_id', async (req, res) => {
+    if (!( await checkUser(req, req.params.user_id))) {
+        res.status(403).json("Forbidden resource; incorrect or no credentials provided.");
+    } else { 
+        UserController.forgetUser(req, res)
+    }
 })
 
 module.exports = router

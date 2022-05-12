@@ -15,7 +15,7 @@ const UserController = {
     },
     async createUser(req, res, options) {
         const user = await User.create({ ...req.body });
-        return res.json(user)
+        return res.status(201).json(user)
     },
     async forgetUser(req, res, options) {
         await User.destroy({ "where": { "id": req.params.user_id } });
