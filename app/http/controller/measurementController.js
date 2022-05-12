@@ -17,6 +17,17 @@ const MeasurementController = {
         const measurement = await Measurement.create({ ...req.body, measured_at: current_time })
         return res.json(measurement)
     },
+    async createIaq(req, res) {
+        let current_time = Date.now()
+        const measurement = await Measurement.create({
+            "temperature": req.query.temperature,
+            "humidity": req.query.humidity,
+            "tvoc": req.query.tvoc,
+            "co2": req.query.co2,
+            "device_id": req.query.device_id,
+            measured_at: current_time })
+        return res.json(measurement)
+    },
     async getMeasurementsByUser(req, res, start_time, period, options) {
         const user_id = req.params.user_id;
         const device_connections = (await Device_Connection.findAll({ where: { "user_id": user_id } })).map(

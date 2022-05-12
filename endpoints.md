@@ -13,6 +13,10 @@ Mogelijke waarden: `minute, hour, day, week, month, year`. Je kan ook een getal 
 `GET | */iaq/:user_id/predict` <br>
 Geeft als string een tip aan de gebruiker terug. Op dit moment nog statisch. <br><br>
 
+`GET | */iaq?api_key=[key]&t=[temperatuur]&h=[luchtvochtigheid]&tvoc=[tvoc]&co2=[co2]` <br>
+Voegt gemeten luchtkwaliteit toe. <br>
+In het url geef je de gemeten waarden en een api-key mee. <br>
+
 `PUT, POST | */devices` <br>
 Voegt apparaat toe aan de database. <br>
 In de body geef je de omgevingsvariabelen van het apparaat en een apparaat-id (fysieke code) mee. <br>
@@ -29,7 +33,6 @@ In de body geef je de gemeten waarden en een apparaat-id mee. <br>
 ```json
 { "device_id": 1, "temperature": 20, "tvoc": 800, "co2": 300, "humidity": 50 }
 ```
-
 `POST | */connections` <br>
 Verbindt een gebruiker en apparaat aan elkaar. <br>
 In de body geeft je het gebruiker-id en het apparaat-id mee. Apparaat-id is niet de fysieke code maar het database id.<br>

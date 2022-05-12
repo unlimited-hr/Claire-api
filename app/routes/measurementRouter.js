@@ -20,6 +20,10 @@ router.get('/', (req, res) => {
     MeasurementController.getIaq(req, res)
 })
 
+router.get('/create', (req, res) => {
+    MeasurementController.createIaq(req, res)
+})
+
 router.post('/', (req, res) => {
     MeasurementController.createMeasurement(req, res)
 })
