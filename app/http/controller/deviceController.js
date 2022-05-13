@@ -2,6 +2,7 @@ const { Sequelize, DataTypes, Model } = require('sequelize');
 const db = require('../../database/database')
 
 const Device = db.Device
+const User = db.User
 
 
 const DeviceController = {

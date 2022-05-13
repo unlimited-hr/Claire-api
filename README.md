@@ -130,7 +130,7 @@ Mogelijke waarden: `minute, hour, day, week, month, year`. Je kan ook een getal 
 `GET | */iaq/:user_id/predict` <br>
 Geeft als string een tip aan de gebruiker terug. Op dit moment nog statisch. <br><br>
 
-`GET | */iaq/create?api_key=[key]&t=[temperatuur]&h=[luchtvochtigheid]&tvoc=[tvoc]&co2=[co2]` <br>
+`GET | */iaq/create?device_id=[id]&t=[temperatuur]&h=[luchtvochtigheid]&tvoc=[tvoc]&co2=[co2]` <br>
 Voegt gemeten luchtkwaliteit toe. <br>
 In het url geef je de gemeten waarden en een api-key mee. <br>
 
@@ -141,6 +141,7 @@ Je kan zowel een PUT- als een POST request doen. Hiermee kun je ervoor kiezen ee
 Gebruik bij PUT het url `claireURL/devices/:device-id`. Hierbij is device-id niet de fysieke code maar die in de database. Deze krijg je terug wanneer je het apparaat met POST aanmaakt. <br>
 Je krijgt de JSON van het gemaakte of aangepaste object terug.
 ```json
+{ "physical_id": 1 }
 { "physical_id": 1, "year_built": 2008, "stories": 2, "cooktop_fuel": "gas", "oven_fuel": "electricity" }
 ```
 
@@ -161,7 +162,7 @@ In de body geeft je het gebruiker-id en het apparaat-id mee. Apparaat-id is niet
 Maakt een nieuwe gebruiker aan. <br>
 In de body geef je een e-mail en een wachtwoord mee. <br>
 ```json
-{ "email": "jane@example.com", "password": "CorrectHorseBatteryStaple" }
+{ "name": "jane", "email": "jane@example.com", "password": "CorrectHorseBatteryStaple" }
 ```
 
 `DELETE | */users/:user_id` <br>
