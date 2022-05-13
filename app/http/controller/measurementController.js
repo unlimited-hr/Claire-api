@@ -20,8 +20,8 @@ const MeasurementController = {
     async createIaq(req, res) {
         let current_time = Date.now()
         const measurement = await Measurement.create({
-            "temperature": req.query.temperature,
-            "humidity": req.query.humidity,
+            "temperature": req.query.t,
+            "humidity": req.query.h,
             "tvoc": req.query.tvoc,
             "co2": req.query.co2,
             "device_id": req.query.device_id,
