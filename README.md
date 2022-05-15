@@ -125,7 +125,7 @@ Bij de responses documenteer ik enkel relevante data. Er kan meer worden meegege
 Geeft gemeten luchtkwaliteit van de apparaten gekoppeld aan een gebruiker terug. <br>
 In de url geef je een gebruiker-id mee.
 ```json
-response: [{ "temperature": 20, "tvoc": 800, "co2": 300, "humidity": 50, "measured_at": "2022-05-13T09:17:58.000Z"}  ...]
+{ "response": [{ "temperature": 20, "tvoc": 800, "co2": 300, "humidity": 50, "measured_at": "2022-05-13T09:17:58.000Z"}  ...] }
 ```
 
 `GET | */iaq/:user_id/:period` <br>
@@ -133,16 +133,16 @@ Geeft gemeten luchtkwaliteit van een gebruiker binnen een periode terug <br>
 Hour geeft alles van afgelopen uur terug, Day alles van afgelopen dag. Etc.<br>
 Mogelijke waarden: `minute, hour, day, week, month, year`. Je kan ook een getal (in minuten) meegeven.
 ```json
-response: [{ "temperature": 20, "tvoc": 800, "co2": 300, "humidity": 50, "measured_at": "2022-05-13T09:17:59.000Z"}  ...]
+{ "response": [{ "temperature": 20, "tvoc": 800, "co2": 300, "humidity": 50, "measured_at": "2022-05-13T09:17:59.000Z"}  ...] }
 ```
 
 `GET | */iaq/:user_id/predict` <br>
 Geeft als string een tip aan de gebruiker terug. Op dit moment nog statisch.
 ```json
-response: "To ventilate properly, you can open a door or window. \n If you live near a busy street, it is better to ventilate in the evening and at night as there's less traffic."
+{ "response": "To ventilate properly, you can open a door or window. \n If you live near a busy street, it is better to ventilate in the evening and at night as there's less traffic." }
 ```
 
-`GET | */iaq/create?device_id=[id]&t=[temperatuur]&h=[luchtvochtigheid]&tvoc=[tvoc]&co2=[co2]` <br>
+`GET | */iaq/create?device_id=[id]&temperature=[temperatuur]&humidity=[luchtvochtigheid]&tvoc=[tvoc]&co2=[co2]` <br>
 Voegt gemeten luchtkwaliteit toe. <br>
 In het url geef je de gemeten waarden en een api-key mee. <br><br>
 
