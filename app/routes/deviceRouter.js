@@ -14,4 +14,8 @@ router.put('/:device_id', (req, res) => {
     DeviceController.updateDevice(req, res)
 })
 
+router.put('/:device_id/personalisation', (req, res) => {
+    DeviceController.updateDevice(req, res)
+})
+
 module.exports = router

@@ -5,12 +5,24 @@ const res = require('express/lib/response');
 const Measurement = db.Air_Measurement
 const Device_Connection = db.Device_Connections
 
-// time,room,YearBuilt,N_Stories,Cooktop_Fuel,Oven_Fuel,CO2,FRM,T,RH,activity,certainty,rel_CO2,rel_FRM,rel_T,rel_RH,CO2_score,FRM_score,RH_score,total_score,hour
-
 const MeasurementController = {
-    async getIaq(req, res, options) {
-        const measurements = await Measurement.findAll({ include: db.Device });
-        return res.json(measurements)
+    async getIaq(req, res, period = "all", options) {
+        if (period == "all") {
+            const measurements = await Measurement.findAll({ include: db.Device });
+            return res.json(measurements)
+        } else {
+            const current_time = new Date(Date.now());
+            const start_time = new Date(Date.now() - period)
+            const measurements = await Measurement.findAll({
+                include: db.Device,
+                where: {
+                    "measured_at": {
+                        [Op.between]: [start_time, current_time]
+                    }
+                }
+            });
+            return res.json(measurements)
+        }
     },
     async createMeasurement(req, res, options) {
         let current_time = Date.now()
@@ -33,11 +45,19 @@ const MeasurementController = {
         const device_connections = (await Device_Connection.findAll({ where: { "user_id": user_id } })).map(
             (conn) => conn.dataValues.device_id)
         let measurements;
+
         if (period == "all")
             measurements = await Measurement.findAll({
                 include: db.Device,
                 where: { "device_id": { [Op.or]: device_connections } }
             });
+        else if (period == "latest") {
+            measurements = await Measurement.findOne({
+                include: db.Device,
+                where: { "device_id": { [Op.or]: device_connections } },
+                order: [ [ 'measured_at', 'DESC' ]],
+            });
+        }
         else {
             const current_time = new Date(Date.now());
             const start_time = new Date(Date.now() - period)

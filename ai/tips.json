@@ -1,0 +1,51 @@
+[
+	{
+		"requirements": ["carpet"],
+		"positive": ["tvoc"],
+		"negative": [],
+		"speed": "fast",
+		"tip": "Clean your carpet."
+	},
+	{
+		"requirements": ["air_conditioning"],
+		"positive": ["tvoc", "co2"],
+		"negative": [],
+		"speed": "slow",
+		"tip": "Replace your AC filters."
+	},
+	{
+		"requirements": ["extractor"],
+		"positive": ["tvoc"],
+		"negative": [],
+		"speed": "fast",
+		"tip": "Turn on your kitchen's extractor hood."
+	},
+	{
+		"requirements": ["extractor"],
+		"positive": ["tvoc"],
+		"negative": [],
+		"speed": "slow",
+		"tip": "Clean your kitchen's extractor hood."
+	},
+	{
+		"requirements": [],
+		"positive": ["tvoc"],
+		"negative": [],
+		"speed": "fast",
+		"tip": "Vacuum your living space."
+	},
+	{
+		"requirements": [],
+		"positive": ["tvoc", "co2", "humidity"],
+		"negative": ["temperature"],
+		"speed": "fast",
+		"tip": "Ventilate your living space by opening a window."
+	},
+	{
+		"requirements": [],
+		"positive": ["tvoc", "humidity"],
+		"negative": [],
+		"speed": "slow",
+		"tip": "Tidy up your living space."
+	}
+]

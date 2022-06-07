@@ -1,0 +1,16 @@
+{
+	"co2": 100,
+	"temperature": 20,
+	"tvoc": 300,
+	"humidity": 50,
+	
+	"start_co2": 200,
+	"start_temperature": 30,
+	"start_tvoc": 9000,
+	"start_humidity": 5,
+
+	"next_co2": 0,
+	"next_temperature": 1,
+	"next_tvoc": 2,
+	"next_humidity": 0
+}

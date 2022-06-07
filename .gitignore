@@ -6,6 +6,8 @@
 .idea
 /.idea
 
+build.sh
+
 # Logs
 logs
 *.log

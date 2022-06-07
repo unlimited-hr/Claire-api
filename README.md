@@ -154,7 +154,6 @@ Gebruik bij PUT het url `claireURL/devices/:device-id`. Hierbij is device-id nie
 Je krijgt de JSON van het gemaakte of aangepaste object terug.
 ```json
 { "physical_id": 1 }
-{ "physical_id": 1, "year_built": 2008, "stories": 2, "cooktop_fuel": "gas", "oven_fuel": "electricity" }
 ```
 
 `POST | */iaq` <br>
